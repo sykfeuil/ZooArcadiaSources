@@ -1,1 +1,10 @@
 @import 'custom.scss';
+@import url(/node_modules/bootstrap-icons/font/bootstrap-icons.css);
+
+h1 {
+    font-family: $font-family-sans-serif;
+}
+
+p {
+    font-family: $font-family-serif;
+}

@@ -11,8 +11,39 @@
 <body>
     
     <header>
-      <nav class="navbar navbar-expand-md bg-light" data-bs-theme="light">
-        TOTO
+      <nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+        <div class="container-fluid">
+
+          <a class="navbar-brand" href="/">
+            <img src="/images/LogoZooArcadiaFinale.png" alt="Logo du zoo Arcadia" height="120">
+          </a>
+          <h1 class="navbar-brand text-white fs-1">Arcadia</h1>
+
+          <button class="navbar-toggler border-0 fs-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list text-white"></i>
+          </button>
+
+          <div class="collapse navbar-collapse fs-4" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Nos services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Les habitats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Connexion/Déconnexion</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </nav>
     </header>
 
@@ -20,11 +51,17 @@
         <!-- Le contenu de la page sera injecté ici -->
     </main>
 
-    <footer>
-      Je suis un footer
+    <footer class="bg-light text-white text-center footer">
+      <div class="row">
+        <div class="col-6 col-lg-4">
+          <h3 class=></h3>
+        </div>
+      </div>
     </footer>
 
     <script type="module" src="router/router.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>
