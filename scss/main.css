@@ -11972,4 +11972,13 @@ h1, .h1 {
 
 p {
   font-family: "Gentium Basic";
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */
