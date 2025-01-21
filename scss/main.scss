@@ -17,3 +17,28 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.service-box {
+    &:hover {
+        img {
+            opacity: 20%;
+        }
+        .title {
+            opacity: 0%;
+        }
+        .description {
+            opacity: 100%;
+        }
+    }
+    .description {
+        opacity: 0%;
+        transition: all 0.3s;
+    }
+    .title {
+        transition: all 0.3s;
+    }
+    img {
+        opacity: 50%;
+        transition: all 0.3s;
+    }
+}

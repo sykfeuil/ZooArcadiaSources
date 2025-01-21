@@ -11981,4 +11981,25 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.service-box:hover img {
+  opacity: 20%;
+}
+.service-box:hover .title {
+  opacity: 0%;
+}
+.service-box:hover .description {
+  opacity: 100%;
+}
+.service-box .description {
+  opacity: 0%;
+  transition: all 0.3s;
+}
+.service-box .title {
+  transition: all 0.3s;
+}
+.service-box img {
+  opacity: 50%;
+  transition: all 0.3s;
 }/*# sourceMappingURL=main.css.map */
