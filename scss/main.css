@@ -11983,6 +11983,9 @@ a:hover {
   text-decoration: underline;
 }
 
+.service-box:hover {
+  cursor: pointer;
+}
 .service-box:hover img {
   opacity: 20%;
 }
@@ -12001,5 +12004,23 @@ a:hover {
 }
 .service-box img {
   opacity: 50%;
+  transition: all 0.3s;
+}
+
+.habitat-box:hover {
+  cursor: pointer;
+}
+.habitat-box:hover img {
+  opacity: 20%;
+}
+.habitat-box:hover .title {
+  opacity: 50%;
+}
+.habitat-box img {
+  opacity: 50%;
+  transition: all 0.3s;
+}
+.habitat-box .title {
+  opacity: 100%;
   transition: all 0.3s;
 }/*# sourceMappingURL=main.css.map */

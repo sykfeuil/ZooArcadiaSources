@@ -1,3 +1,40 @@
 <div class="text-primary text-center p-3">
-    <h2 class="fs-1 fw-bold">Le zoo d'Arcadia vous propose</h2>
+    <h2 id="habitatName" class="fs-1 fw-bold">habitatName</h2>
 </div>
+
+<div class="row p-3 m-0 text-dark" id="habitatDescription">
+    <!--Insertion de la description de l'habitat depuis le js et la BDD-->
+</div>
+
+<div id="carouselHabitatGallery" class="carousel slide carousel-fade carousel-dark p-3 m-0">
+    <div id="habitatGallery" class="carousel-inner">
+      <!--Insertion des photos de l'habitat via JS et BDD-->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitatGallery" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitatGallery" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+</div>
+
+<div class="text-center p-3 m-0">
+    <h2 class="fs-1 fw-bold text-primary">Dans cet habitat vous pourrez voir</h2>
+    <div class="row p-3 m-0" id="habitatAnimals">
+        <!--Insertion des images de l'habitat depuis le js et la BDD-->
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="animalDetailModal" tabindex="-1" aria-labelledby="animalDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div id="animalDetail" class="modal-content">
+        <!--Insertion de la modale selon les données récupérées du JS-->
+      </div>
+    </div>
+  </div>

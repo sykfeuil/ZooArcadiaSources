@@ -20,6 +20,7 @@ a:hover {
 
 .service-box {
     &:hover {
+        cursor: pointer;
         img {
             opacity: 20%;
         }
@@ -39,6 +40,26 @@ a:hover {
     }
     img {
         opacity: 50%;
+        transition: all 0.3s;
+    }
+}
+
+.habitat-box {
+    &:hover {
+        cursor: pointer;
+        img {
+            opacity: 20%;
+        }
+        .title {
+            opacity: 50%;
+        }
+    }
+    img {
+        opacity: 50%;
+        transition: all 0.3s;
+    }
+    .title {
+        opacity: 100%;
         transition: all 0.3s;
     }
 }
