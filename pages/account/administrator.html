@@ -1,0 +1,363 @@
+<div class="text-primary text-center p-3">
+    <h2 class="fs-1 fw-bold">Espace administrateur</h2>
+</div>
+
+<div class="container p-3 m-0">
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#createAccountModal">Créer un compte utilisateur</button>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="p-3">
+      <h3 class="fs-3 fw-bold text-primary">Liste des services</h3>
+
+      <div>
+          <button id="serviceCreate" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#createServiceModal">Ajouter</button>
+          <button id="serviceEdit" class="btn btn-light text-white" data-bs-toggle="modal" data-bs-target="#editServiceModal">Modifier</button>
+          <button id="serviceDelete" class="btn btn-danger text-white">Supprimer</button>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Service</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody id="servicesTable">
+          <!--Insertion des services depuis JS et BDD-->
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <div class="p-3">
+      <h3 class="fs-3 fw-bold text-primary">Liste des habitats</h3>
+
+      <div>
+          <button id="habitatCreate" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#createHabitatModal">Ajouter</button>
+          <button id="habitatEdit" class="btn btn-light text-white" data-bs-toggle="modal" data-bs-target="#editHabitatModal">Modifier</button>
+          <button id="habitatDelete" class="btn btn-danger text-white">Supprimer</button>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Habitat</th>
+            <th scope="col">Description</th>
+            <th scope="col">Animaux</th>
+          </tr>
+        </thead>
+        <tbody id="habitatsTable">
+          <!--Insertion des habitats depuis JS et BDD-->
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <div class="p-3">
+      <h3 class="fs-3 fw-bold text-primary">Liste des animaux</h3>
+
+      <div>
+          <button id="animalCreate" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#createAnimalModal">Ajouter</button>
+          <button id="animalEdit" class="btn btn-light text-white" data-bs-toggle="modal" data-bs-target="#editAnimalModal">Modifier</button>
+          <button id="animalDelete" class="btn btn-danger text-white">Supprimer</button>
+      </div>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Race</th>
+            <th scope="col">Habitat</th>
+          </tr>
+        </thead>
+        <tbody id="animalsTable">
+          <!--Insertion des données via JS et BDD-->
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+
+
+<!-- Modale pour créer compte -->
+<div class="modal fade" id="createAccountModal" tabindex="-1" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createAccountModalLabel">Créer un compte utilisateur</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid p-3 m-0 text-dark">
+                <form class="py-5">
+                    <div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected> -- Choisir le type de compte -- </option>
+                            <option value="1">Employé</option>
+                            <option value="2">Vétérinaire</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="inputEmail" class="form-label">Adresse mail</label>
+                      <input type="email" class="form-control" id="inputEmail" placeholder="johndoe@email.fr">
+                    </div>
+            
+                    <div class="mb-3">
+                      <label for="inputPassword" class="form-label">Mot de passe</label>
+                      <input type="password" class="form-control" id="inputPassword">
+                    </div>
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modale pour modifier service -->
+<div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editServiceModalLabel">Modifier le service</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="editServiceModalBody" class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+              <form class="py-5">
+
+                  <div class="mb-3">
+                    <label for="serviceEditName" class="form-label">Nom du service</label>
+                    <input type="text" class="form-control" id="serviceEditName">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="serviceEditDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="serviceEditDescription" rows="5"></textarea>
+                  </div>
+                </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour créer service -->
+<div class="modal fade" id="createServiceModal" tabindex="-1" aria-labelledby="createServiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createServiceModalLabel">Créer un service</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+              <form class="py-5">
+
+                  <div class="mb-3">
+                    <label for="serviceCreateName" class="form-label">Nom du service</label>
+                    <input type="text" class="form-control" id="serviceCreateName">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="serviceCreateDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="serviceCreateDescription" rows="5"></textarea>
+                  </div>
+                </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour modifier habitat -->
+<div class="modal fade" id="editHabitatModal" tabindex="-1" aria-labelledby="editHabitatModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editHabitatModalLabel">Modifier l'habitat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="editHabitatModalBody" class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+              <form enctype='multipart/form-data' class="py-5">
+
+                  <div class="mb-3">
+                    <label for="habitatEditName" class="form-label">Nom de l'habitat</label>
+                    <input type="text" class="form-control" id="habitatEditName">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="habitatEditDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="habitatEditDescription" rows="5"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="habitatEditImages" class="form-label">Les images de l'habitat</label>
+                    <input type="file" name="files[]" multiple class="form-control" id="habitatEditImages">
+                  </div>
+
+                  <div id="habitatEditAnimals" class="row row-cols-3 btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
+                    <!--Insertion des animaux disponibles depuis JS et BDD-->
+                  </div>
+
+                </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour créer habitat -->
+<div class="modal fade" id="createHabitatModal" tabindex="-1" aria-labelledby="createHabitatModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createHabitatModalLabel">Créer un nouvel habitat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+              <form class="py-5">
+
+                <div class="mb-3">
+                  <label for="habitatCreateName" class="form-label">Nom de l'habitat</label>
+                  <input type="text" class="form-control" id="habitatCreateName">
+                </div>
+        
+                <div class="mb-3">
+                  <label for="habitatCreateDescription" class="form-label">Description</label>
+                  <textarea class="form-control" id="habitatCreateDescription" rows="5"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="habitatCreateImages" class="form-label">Les images de l'habitat</label>
+                  <input type="file" name="files[]" multiple class="form-control" id="habitatCreateImages">
+                </div>
+
+                <div id="habitatCreateAnimals" class="row row-cols-3 btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
+                  <!--Insertion des animaux disponibles depuis JS et BDD-->
+                </div>
+
+                </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour modifier animal -->
+<div class="modal fade" id="editAnimalModal" tabindex="-1" aria-labelledby="editAnimalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editAnimalModalLabel">Modifier la fiche de l'animal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="editAnimalModalBody" class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+              <form class="py-5">
+
+                  <div class="mb-3">
+                    <label for="animalEditName" class="form-label">Prénom</label>
+                    <input type="text" class="form-control" id="animalEditName">
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="animalEditRace" class="form-label">Race</label>
+                    <input type="text" class="form-control" id="animalEditRace">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="animalEditHabitat" class="form-label">Habitat</label>
+                    <input type="text" class="form-control" id="animalEditHabitat">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="animalEditImages" class="form-label">Les images de l'animal</label>
+                    <input type="file" name="files[]" multiple class="form-control" id="animalEditImages">
+                  </div>
+                </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modale pour créer service -->
+<div class="modal fade" id="createAnimalModal" tabindex="-1" aria-labelledby="createAnimalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createAnimalModalLabel">Créer un animal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="container-fluid p-3 m-0 text-dark">
+            <form class="py-5">
+
+              <div class="mb-3">
+                <label for="animalCreateName" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="animalCreateName">
+              </div>
+      
+              <div class="mb-3">
+                <label for="animalCreateRace" class="form-label">Race</label>
+                <input type="text" class="form-control" id="animalCreateRace">
+              </div>
+
+              <div class="mb-3">
+                <label for="animalCreateHabitat" class="form-label">Habitat</label>
+                <input type="text" class="form-control" id="animalCreateHabitat">
+              </div>
+
+              <div class="mb-3">
+                <label for="animalCreateImages" class="form-label">Les images de l'animal</label>
+                <input type="file" name="files[]" multiple class="form-control" id="animalCreateImages">
+              </div>
+            </form>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
